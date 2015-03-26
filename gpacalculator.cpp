@@ -10,7 +10,8 @@ int main()
     
     string s;
     do {
-      cout << "Enter subject, grade, and credit hours (e.g. 100 A 4.0 12 B 4.0): ";
+      cout << "Enter subject, grade, and credit hours to calculate total grade points" << endl
+           << "and GPA (e.g. CSE30 A 4.0 HIST100 B 4.0): ";
       getline(cin, s);
     }while(s.compare("")==0);
 
@@ -22,7 +23,7 @@ int main()
     float totalPoints = 0;
     float totalHours = 0;
 
-    cout << "---------------------------" << endl;
+    cout << "------------------------------" << endl;
     cout << setw(7) << "Subject" << setw(10) << "Grade" << setw(10) << "Hours" << endl;
     while(iss >> subject >> grade >> hours)
     {
@@ -45,11 +46,11 @@ int main()
       cout << setw(7) << subject << setw(10) << grade << setw(10) << hours << endl;
       totalPoints += hours*gradeVal;
     }
-    cout << "---------------------------" << endl;
+    cout << "------------------------------" << endl;
     cout << setw(22) << left << "Total grade points: " << totalPoints << endl;
     cout << setw(22) << left << "Total hours: " << totalHours << endl;
     cout << setw(22) << left << "GPA: " << totalPoints/totalHours << endl;
-    cout << "---------------------------" << endl;
+    cout << "------------------------------" << endl;
 
     cout << endl << "Would you like to enter grades again? (y to run again): ";
     getline(cin,response);
