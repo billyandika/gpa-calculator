@@ -10,8 +10,8 @@ int main()
     
     string s;
     do {
-      cout << "Enter subject, grade, and credit hours to calculate total grade points" << endl
-           << "and GPA (e.g. CSE30 A 4.0 HIST100 B 4.0): ";
+      cout << "Enter subject, units, and letter grade to calculate total grade points" << endl
+           << "and GPA (e.g. CSE30 4 A HIST100 4 B+): ";
       getline(cin, s);
     }while(s.compare("")==0);
 
@@ -24,8 +24,8 @@ int main()
     float totalHours = 0;
 
     cout << "------------------------------" << endl;
-    cout << setw(7) << "Subject" << setw(10) << "Grade" << setw(10) << "Hours" << endl;
-    while(iss >> subject >> grade >> hours)
+    cout << left << setw(7) << "Subject" << "\t" << "Units" << "\t" << "Grade" << endl;
+    while(iss >> subject >> hours >> grade)
     {
       totalHours += hours;
       float gradeVal;
@@ -43,12 +43,12 @@ int main()
       else if(grade.compare("D-")==0) gradeVal = 0.7;
       else cout << "Grade entered is invalid" << endl;
 
-      cout << setw(7) << subject << setw(10) << grade << setw(10) << hours << endl;
+      cout << setw(7) << subject << "\t" << hours << "\t" << grade << endl;
       totalPoints += hours*gradeVal;
     }
     cout << "------------------------------" << endl;
     cout << setw(22) << left << "Total grade points: " << totalPoints << endl;
-    cout << setw(22) << left << "Total hours: " << totalHours << endl;
+    cout << setw(22) << left << "Total units: " << totalHours << endl;
     cout << setw(22) << left << "GPA: " << totalPoints/totalHours << endl;
     cout << "------------------------------" << endl;
 
